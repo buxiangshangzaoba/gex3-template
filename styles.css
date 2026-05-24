@@ -1,0 +1,233 @@
+/*  Introduce Luna font */
+@font-face {
+    font-family: 'Luna';
+    src: url('./assets/fonts/Luna.ttf') format('truetype');
+}
+
+
+body {
+    background: url('./assets/bg-totoro.jpg') center center / cover fixed !important;
+    background-attachment: fixed;
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*Heading style */
+h1 {
+    font-family: 'Luna' !important;
+    color: #7ed957 !important;
+    text-align: center;
+    font-size: 2.4rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+}
+
+/* Accordion container */
+.accordion.accordion-flush {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    margin: 0 !important;
+}
+
+
+.accordion-item {
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    position: relative;
+}
+
+/* Accordion coverage map */
+.acc-bg-1::after,
+.acc-bg-2::after,
+.acc-bg-3::after,
+.acc-bg-4::after,
+.acc-bg-5::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-position: center !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    z-index: 0;
+}
+
+.acc-bg-1::after { background-image: url('./assets/acc-bg1.jpg') !important; }
+.acc-bg-2::after { background-image: url('./assets/acc-bg2.jpg') !important; }
+.acc-bg-3::after { background-image: url('./assets/acc-bg3.jpg') !important; }
+.acc-bg-4::after { background-image: url('./assets/acc-bg4.jpg') !important; }
+.acc-bg-5::after { background-image: url('./assets/acc-bg5.jpg') !important; }
+
+
+.accordion-header {
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100px !important;
+    position: relative;
+    z-index: 1;
+}
+
+
+.accordion-button {
+    font-family: 'Luna' !important;
+    background: transparent !important;
+    color: #ffdd77 !important;
+    font-weight: normal;
+    font-size: 1.4rem;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 1.5rem !important;
+    height: 100% !important;
+    width: 100%;
+    text-align: left !important;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.accordion-button:not(.collapsed) {
+    background: transparent !important;
+    color: #ffdd77 !important;
+    box-shadow: none !important;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+
+/* Expand the content area*/
+.accordion-body {
+    background-color: #f8f4e9; /* 🔥 改成柔和米色 */
+    padding: 1.5rem;
+    border: none;
+    color: #212529;
+    margin: 0 !important;
+    font-size: 0.9rem;
+}
+
+/* form control */
+.form-control,
+.form-select {
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Park card */
+.place-card {
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 2px solid #dee2e6;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #fff;
+    height: 100%;
+}
+.place-card.selected {
+    border: 3px solid #e67e22;
+    background-color: #fff6e8;
+    box-shadow: 0 8px 16px rgba(230, 126, 34, 0.18);
+    transform: scale(1.02);
+}
+.place-card img {
+    height: 140px;
+    object-fit: cover;
+    width: 100%;
+}
+.card-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.card-text {
+    font-size: 0.8rem;
+}
+
+
+.error-msg {
+    font-size: 0.8rem;
+    color: #d9534f;
+    margin-top: 0.25rem;
+    display: block;
+}
+.general-error {
+    background: rgba(248, 215, 218, 0.9);
+    border-left: 5px solid #dc3545;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+}
+
+/* Function button */
+.btn-ghibli {
+    background: #28a745;
+    color: white;
+    font-weight: normal;
+    font-size: 1.1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 2rem;
+    border: none;
+}
+.btn-ghibli:hover {
+    background: #218838;
+    color: #fff;
+    transform: scale(1.03);
+}
+
+/* Summary Card*/
+.summary-card {
+    background: rgba(233, 247, 239, 0.95);
+    border-left: 6px solid #28a745;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+}
+
+/* footer */
+footer {
+    font-size: 0.8rem;
+    color: #fff;
+    margin-top: 2rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Responsive adaptation */
+@media (max-width: 768px) {
+    h1 { font-size: 1.8rem; }
+    .accordion-button { font-size: 1.1rem; }
+    .place-card img { height: 110px; }
+    .accordion-body { padding: 1rem; }
+    body { padding: 1rem 0.5rem; }
+    .acc-bg-1::after,
+    .acc-bg-2::after,
+    .acc-bg-3::after,
+    .acc-bg-4::after,
+    .acc-bg-5::after {
+        height: 75px !important;
+    }
+    .accordion-header { height: 75px !important; }
+    .app-container {
+        max-width: 100%;
+    }
+}
