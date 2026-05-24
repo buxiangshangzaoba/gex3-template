@@ -176,16 +176,46 @@
         <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ generalError }}
     </div>
 
+    <!-- ✅ 这里已经改成你要的 5 大模块完整版本 -->
     <div v-if="showSummary && !generalError" class="summary-card">
-        <h5 class="text-center mb-3">Your Itinerary Summary</h5>
-        <hr>
-        <div><strong>Full Name:</strong> {{ form.fullName || 'Not provided' }}</div>
-        <div><strong>Date of Birth:</strong> {{ form.dob || 'Not provided' }}</div>
-        <div><strong>Gender:</strong> {{ form.gender || 'Not provided' }}</div>
-        <div><strong>Total Visitors:</strong> {{ form.totalVisitors }} (Children: {{ form.childrenCount }})</div>
-        <div><strong>Accommodation:</strong> {{ form.accommodation }}</div>
-        <div><strong>Selected Areas:</strong> {{ selectedPlaces.length }} area(s)</div>
-        <p class="mt-3 text-center text-success fw-bold">Itinerary generated successfully!</p>
+        <h4 class="mb-3 fw-bold border-bottom pb-2">Your Ghibli Park Itinerary</h4>
+
+        <div class="mb-3">
+            <h6 class="fw-bold text-success"> Personal Details</h6>
+            <p class="mb-1"><strong>Full Name:</strong> {{ form.fullName || 'Not provided' }}</p>
+            <p class="mb-1"><strong>Date of Birth:</strong> {{ form.dob || 'Not provided' }}</p>
+            <p class="mb-0"><strong>Gender:</strong> {{ form.gender || 'Not provided' }}</p>
+        </div>
+
+        <div class="mb-3">
+            <h6 class="fw-bold text-success"> Selected Park Areas</h6>
+            <span v-for="(place, i) in selectedPlaces" :key="i" class="d-block">
+                ✔ {{ place.name }}
+            </span>
+            <span v-if="selectedPlaces.length === 0" class="text-muted">No areas selected</span>
+        </div>
+
+        <div class="mb-3">
+            <h6 class="fw-bold text-success"> Visitor Information</h6>
+            <p class="mb-1"><strong>Total Visitors:</strong> {{ form.totalVisitors || 0 }}</p>
+            <p class="mb-0"><strong>Children:</strong> {{ form.childrenCount || 0 }}</p>
+        </div>
+
+        <div class="mb-3">
+            <h6 class="fw-bold text-success"> Accommodation</h6>
+            <p class="mb-0">{{ form.accommodation || 'Not selected' }}</p>
+        </div>
+
+        <div class="mb-3">
+            <h6 class="fw-bold text-success"> Payment Summary</h6>
+            <p class="mb-1"><strong>Cardholder:</strong> {{ form.cardHolder || 'Not provided' }}</p>
+            <p class="mb-1"><strong>Card:</strong> **** **** **** {{ form.cardNumber.slice(-4) || 'XXXX' }}</p>
+            <p class="mb-0"><strong>Expiry:</strong> {{ form.expiryDate || 'MM/YYYY' }}</p>
+        </div>
+
+        <div class="mt-3 pt-2 border-top text-center text-success fw-bold">
+             Itinerary generated successfully!
+        </div>
     </div>
 
     <footer class="text-center mt-5">© Ghibli Park Reservation System</footer>
